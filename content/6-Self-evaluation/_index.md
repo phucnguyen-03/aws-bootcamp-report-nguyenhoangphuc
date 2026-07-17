@@ -10,7 +10,7 @@ pre: " <b> 6. </b> "
 ⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
 {{% /notice %}}
 
-During my internship at **Amazon Web Services Vietnam Company Limited** from **17/04/2026** to **10/07/2026**, I had the opportunity to learn, practice, and apply the knowledge I acquired at university in a real working environment.  
+During my internship at **Amazon Web Services Vietnam Company Limited** from **17/04/2026** to **30/07/2026**, I had the opportunity to learn, practice, and apply the knowledge I acquired at university in a real working environment.  
 I participated in the **First Cloud AI Journey (FCAJ) Cloud Internship Program**, through which I improved my skills in **software development, requirements analysis, system design, AWS service implementation, technical documentation, teamwork, presentation, and professional communication**.
 
 Regarding my working attitude, I always tried my best to complete assigned tasks, comply with the company's regulations, and actively communicate with mentors and teammates to improve work efficiency.
