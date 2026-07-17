@@ -1,6 +1,6 @@
-baseURL = "https://workshop-sample.awsfcaj.com/"
-relativeURLs = false
-canonifyURLs = false
+baseURL = "https://phucnguyen-03.github.io/aws-bootcamp-report-nguyenhoangphuc/"
+relativeURLs = true
+canonifyURLs = true
 defaultContentLanguage = "en"
 
 # Change the default theme to be use when building the site with Hugo
