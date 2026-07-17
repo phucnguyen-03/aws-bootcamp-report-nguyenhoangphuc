@@ -1,59 +1,58 @@
 ---
 title: "Worklog Tuần 8"
-date: 2024-01-01
-weight: 1
+date: 2026-06-06
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
+
 {{% notice warning %}}
 ⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
 {{% /notice %}}
 
-
 ### Mục tiêu tuần 8:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Xây dựng phiên bản MVP đầu tiên của hệ thống.
+* Triển khai chức năng xác thực người dùng bằng Amazon Cognito.
+* Xây dựng chức năng quản lý tài liệu trên Amazon S3.
+* Hoàn thiện giao diện cơ bản và kết nối Frontend với Backend.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| 6 | - Triển khai chức năng đăng ký và đăng nhập bằng Amazon Cognito.<br>- Cấu hình User Pool, Authentication Flow và xác thực Email cho người dùng. | 06/06 | 06/06 | AWS Cognito Documentation |
+| 7 | - Cấu hình chức năng Quên mật khẩu (Forgot Password) và xác thực đa yếu tố (MFA).<br>- Thiết lập Email OTP phục vụ quá trình xác thực tài khoản. | 07/06 | 07/06 | AWS Cognito Documentation |
+| CN | - Tích hợp Amazon S3 vào hệ thống.<br>- Thực hiện Upload tài liệu bằng Presigned URL.<br>- Kiểm tra giới hạn loại tệp và kích thước tệp trước khi tải lên. | 08/06 | 08/06 | Amazon S3 Documentation |
+| 2 | - Xây dựng API GraphQL bằng AWS AppSync.<br>- Thiết kế Mutation và Query phục vụ quản lý tài liệu.<br>- Lưu metadata tài liệu trên Amazon DynamoDB. | 09/06 | 09/06 | AWS AppSync Documentation |
+| 3 | - Xây dựng giao diện hiển thị danh sách tài liệu.<br>- Thực hiện chức năng Preview, Download và Delete tài liệu.<br>- Cấu hình phân quyền truy cập thông qua Amazon S3 Access Level. | 10/06 | 10/06 | AWS Amplify Storage |
+| 4 | - Hoàn thiện giao diện Responsive trên Angular.<br>- Bổ sung Dark Mode và Light Mode.<br>- Kiểm tra khả năng hoạt động trên nhiều kích thước màn hình. | 11/06 | 11/06 | Angular Documentation |
+| 5 | - Kiểm thử toàn bộ các chức năng của phiên bản MVP.<br>- Báo cáo tiến độ với Mentor.<br>- Tiếp nhận góp ý và lập kế hoạch tích hợp AI cho giai đoạn tiếp theo. | 12/06 | 12/06 | Nội bộ Project |
 
 ### Kết quả đạt được tuần 8:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Hoàn thành phiên bản MVP đầu tiên của hệ thống **AI-Powered Smart Document Assistant**.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Triển khai thành công hệ thống xác thực người dùng bằng Amazon Cognito, bao gồm:
+  * User Registration
+  * User Login
+  * Email Verification
+  * Forgot Password
+  * Multi-Factor Authentication (MFA)
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Tích hợp thành công Amazon S3 để lưu trữ tài liệu thông qua Presigned URL, giúp tăng hiệu suất upload và đảm bảo tính bảo mật.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Xây dựng GraphQL API bằng AWS AppSync và lưu trữ metadata của tài liệu trên Amazon DynamoDB.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* Hoàn thiện các chức năng quản lý tài liệu gồm:
+  * Upload Document
+  * Document List
+  * File Preview
+  * Download File
+  * Delete File
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+* Áp dụng cơ chế phân quyền truy cập tài liệu thông qua Amazon S3 Access Level nhằm đảm bảo dữ liệu chỉ được truy cập bởi người dùng có quyền.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Hoàn thiện giao diện người dùng với khả năng Responsive và hỗ trợ chế độ Dark/Light Mode.
 
-
+* Hoàn thành kiểm thử chức năng của phiên bản MVP và sẵn sàng chuyển sang giai đoạn tích hợp AI với Amazon Textract và Amazon Bedrock trong tuần tiếp theo.

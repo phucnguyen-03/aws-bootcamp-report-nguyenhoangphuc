@@ -1,57 +1,58 @@
 ---
-title: "Week 7 Worklog"
-date: 2024-01-01
-weight: 1
+title: "Worklog Week 7"
+date: 2026-05-30
+weight: 7
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
+
+{{% notice warning %}}
+⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it word for word** into your internship report, including this warning.
 {{% /notice %}}
 
+### Weekly Objectives:
 
-### Week 7 Objectives:
+* Initialize the AI-Powered Smart Document Assistant project.
+* Set up the development environment using AWS Amplify Gen 2.
+* Design the initial serverless architecture of the system.
+* Prepare the infrastructure and CI/CD pipeline for project development.
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Weekly Tasks:
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Tasks | Start Date | Completion Date | Reference |
+| --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| Saturday | - Initialize the project repository.<br>- Create the AWS Amplify Gen 2 project.<br>- Set up the Backend-as-Code project structure. | 30/05 | 30/05 | AWS Amplify Documentation |
+| Sunday | - Configure the development environments for **dev** and **prod**.<br>- Set up Amplify Sandbox for development and testing purposes. | 31/05 | 31/05 | AWS Amplify Documentation |
+| Monday | - Configure AWS Amplify Hosting.<br>- Connect the Git repository to Amplify.<br>- Set up a CI/CD pipeline to automatically build and deploy the application when changes are pushed to the repository. | 01/06 | 01/06 | AWS Amplify Hosting Documentation |
+| Tuesday | - Configure AWS Budget Alerts to monitor cloud service costs.<br>- Set up CloudWatch Billing Alarms to control project expenses during development. | 02/06 | 02/06 | AWS Budgets Documentation |
+| Wednesday | - Configure IAM Roles following the Principle of Least Privilege.<br>- Assign dedicated permissions to each AWS Lambda function and related AWS services. | 03/06 | 03/06 | AWS IAM Documentation |
+| Thursday | - Design the overall architecture of the AI-Powered Smart Document Assistant.<br>- Identify the AWS services to be used in the project, including AWS Amplify, Amazon Cognito, AWS AppSync, AWS Lambda, Amazon S3, Amazon DynamoDB, and Amazon Bedrock. | 04/06 | 04/06 | AWS Architecture Center |
+| Friday | - Discuss the system architecture and project roadmap with the mentor.<br>- Summarize the completed tasks and prepare for implementing the MVP features in the following week. | 05/06 | 05/06 | Internal Project Documentation |
 
+### Results Achieved in Week 7:
 
-### Week 7 Achievements:
+* Successfully initialized the **AI-Powered Smart Document Assistant** project using AWS Amplify Gen 2.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Successfully configured the development environments, including:
+  * Development Environment (dev)
+  * Production Environment (prod)
 
-* Successfully created and configured an AWS Free Tier account.
+* Successfully configured AWS Amplify Hosting and integrated a CI/CD pipeline to automatically build and deploy the application whenever source code changes are pushed to the repository.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Configured AWS Budget Alerts and CloudWatch Billing Alarms to monitor cloud service costs throughout the development process.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* Applied the **Principle of Least Privilege** by configuring dedicated IAM Roles to enhance the security of the system.
 
-* Used AWS CLI to perform basic operations such as:
+* Completed the overall system architecture design based on a **Serverless Architecture** on AWS.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+* Identified the primary AWS services required for the project, including:
+  * AWS Amplify Hosting
+  * Amazon Cognito
+  * AWS AppSync
+  * AWS Lambda
+  * Amazon S3
+  * Amazon DynamoDB
+  * Amazon Bedrock
+  * Amazon CloudWatch
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Successfully completed the infrastructure setup, development environment configuration, and initial project planning, providing a solid foundation for implementing the MVP features in the following phase.

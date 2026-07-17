@@ -1,57 +1,52 @@
 ---
-title: "Week 6 Worklog"
-date: 2024-01-01
-weight: 1
+title: "Worklog Week 6"
+date: 2026-05-23
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
+
+{{% notice warning %}}
+⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it word for word** into your internship report, including this warning.
 {{% /notice %}}
 
+### Weekly Objectives:
 
-### Week 6 Objectives:
+* Review and consolidate the AWS knowledge acquired throughout the training program.
+* Reinforce practical skills by repeating the key hands-on labs.
+* Learn how to design cloud architectures using AWS best practices.
+* Prepare the project plan, development environment, and technology stack for the implementation phase.
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Weekly Tasks:
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Tasks | Start Date | Completion Date | Reference |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| Saturday | - Review the AWS services studied during the training, including Amazon EC2, Amazon VPC, Amazon S3, IAM, and AWS Security services.<br>- Summarize the key concepts and document important notes. | 23/05 | 23/05 | https://cloudjourney.awsstudygroup.com/ |
+| Sunday | - Repeat the hands-on labs for Amazon EC2, Amazon VPC, and Amazon S3.<br>- Verify the ability to deploy and configure AWS services independently. | 24/05 | 24/05 | https://cloudjourney.awsstudygroup.com/ |
+| Monday | - Learn how to design AWS cloud architectures using draw.io.<br>- Become familiar with AWS Architecture Icons and AWS architectural design principles. | 25/05 | 25/05 | https://cloudjourney.awsstudygroup.com/ |
+| Tuesday | - Design a basic web application architecture on AWS.<br>- Arrange components such as Amazon VPC, Amazon EC2, Amazon S3, IAM, and Internet Gateway within the architecture diagram. | 26/05 | 26/05 | https://cloudjourney.awsstudygroup.com/ |
+| Wednesday | - Review the project requirements.<br>- Research the technologies and define the project scope.<br>- Discuss the project implementation plan with the mentor. | 27/05 | 27/05 | https://cloudjourney.awsstudygroup.com/ |
+| Thursday | - Prepare the development environment for the project.<br>- Develop an implementation plan, divide project tasks, and define milestones for each development phase. | 28/05 | 28/05 | https://cloudjourney.awsstudygroup.com/ |
+| Friday | - Summarize all AWS knowledge acquired during the training period.<br>- Evaluate the learning outcomes and prepare for the project implementation phase. | 29/05 | 29/05 | https://cloudjourney.awsstudygroup.com/ |
 
+### Results Achieved in Week 6:
 
-### Week 6 Achievements:
+* Successfully reviewed and consolidated the knowledge gained throughout the AWS training program.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Repeated the key hands-on labs to strengthen practical skills in deploying, configuring, and managing AWS services.
 
-* Successfully created and configured an AWS Free Tier account.
+* Gained an understanding of AWS cloud architecture design principles and learned how to create architecture diagrams using draw.io and AWS Architecture Icons.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Learned how to organize and integrate core AWS services within a cloud architecture, including:
+  * Amazon VPC
+  * Amazon EC2
+  * Amazon S3
+  * Internet Gateway
+  * Security Groups
+  * AWS Identity and Access Management (IAM)
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* Completed a basic AWS architecture diagram to serve as the foundation for the upcoming project implementation.
 
-* Used AWS CLI to perform basic operations such as:
+* Discussed the project requirements, scope, and implementation strategy with the mentor, and established a development plan aligned with the internship schedule.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Prepared the required knowledge, tools, and development environment to transition smoothly into the project implementation phase during the following weeks.

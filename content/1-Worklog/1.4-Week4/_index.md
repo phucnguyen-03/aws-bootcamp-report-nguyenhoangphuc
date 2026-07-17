@@ -1,57 +1,57 @@
 ---
-title: "Week 4 Worklog"
-date: 2024-01-01
-weight: 1
+title: "Worklog Week 4"
+date: 2026-05-09
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
+
+{{% notice warning %}}
+⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it word for word** into your internship report, including this warning.
 {{% /notice %}}
 
+### Weekly Objectives:
 
-### Week 4 Objectives:
+* Learn about AWS storage services.
+* Understand the architecture and functionality of Amazon S3 and its Storage Classes.
+* Practice configuring Bucket Versioning, Static Website Hosting, and Amazon CloudFront.
+* Explore backup and disaster recovery solutions available on AWS.
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Weekly Tasks:
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Tasks | Start Date | Completion Date | Reference |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| Saturday | - Study the overview of AWS storage services.<br>- Compare Amazon S3, Amazon EBS, Amazon EFS, Amazon FSx, and AWS Storage Gateway.<br>- Learn about Amazon S3 Storage Classes. | 09/05 | 09/05 | https://cloudjourney.awsstudygroup.com/ |
+| Sunday | - Practice creating and configuring Amazon S3 buckets.<br>- Upload, download, and manage objects stored in Amazon S3.<br>- Enable Bucket Versioning to manage object versions. | 10/05 | 10/05 | https://cloudjourney.awsstudygroup.com/ |
+| Monday | - Learn about Static Website Hosting on Amazon S3.<br>- Configure Bucket Policies and Public Access settings.<br>- Deploy a static website using an Amazon S3 bucket. | 11/05 | 11/05 | https://cloudjourney.awsstudygroup.com/ |
+| Tuesday | - Study Amazon CloudFront.<br>- Practice content delivery through a CloudFront distribution.<br>- Verify website accessibility via Amazon CloudFront. | 12/05 | 12/05 | https://cloudjourney.awsstudygroup.com/ |
+| Wednesday | - Learn about AWS Backup and AWS Storage Gateway.<br>- Create a Backup Plan.<br>- Study backup and recovery procedures on AWS. | 13/05 | 13/05 | https://cloudjourney.awsstudygroup.com/ |
+| Thursday | - Practice configuring Amazon S3 Versioning, Lifecycle Policies, and Cross-Region Replication.<br>- Learn about Amazon S3 Glacier and long-term archival storage solutions. | 14/05 | 14/05 | https://cloudjourney.awsstudygroup.com/ |
+| Friday | - Review AWS storage services.<br>- Repeat the completed hands-on labs.<br>- Discuss the completed tasks with the mentor and record any issues encountered during the exercises. | 15/05 | 15/05 | https://cloudjourney.awsstudygroup.com/ |
 
+### Results Achieved in Week 4:
 
-### Week 4 Achievements:
+* Gained a comprehensive understanding of the primary storage services available on AWS and their respective use cases.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Developed practical knowledge of:
+  * Amazon S3
+  * Amazon Elastic Block Store (Amazon EBS)
+  * Amazon Elastic File System (Amazon EFS)
+  * Amazon FSx
+  * AWS Storage Gateway
 
-* Successfully created and configured an AWS Free Tier account.
+* Successfully created and managed Amazon S3 buckets for object storage.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Practiced configuring:
+  * Bucket Versioning
+  * Bucket Policies
+  * Static Website Hosting
+  * Lifecycle Policies
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* Understood the different Amazon S3 Storage Classes and learned how to select the appropriate storage option based on performance, availability, and cost requirements.
 
-* Used AWS CLI to perform basic operations such as:
+* Successfully deployed a static website using Amazon S3 and improved content delivery performance through Amazon CloudFront.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+* Created a Backup Plan using AWS Backup and gained an understanding of backup and disaster recovery procedures on AWS.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Successfully completed the hands-on labs related to AWS storage services, strengthening practical skills in cloud storage management and preparing for application deployment in the following weeks.

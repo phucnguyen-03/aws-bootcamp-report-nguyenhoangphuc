@@ -1,57 +1,51 @@
 ---
-title: "Week 11 Worklog"
-date: 2024-01-01
-weight: 2
+title: "Worklog Week 11"
+date: 2026-06-27
+weight: 11
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
+
+{{% notice warning %}}
+⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it word for word** into your internship report, including this warning.
 {{% /notice %}}
 
+### Weekly Objectives:
 
-### Week 11 Objectives:
+* Develop intelligent document retrieval using Semantic Search.
+* Build an AI-powered chat system based on document content.
+* Integrate Amazon Titan Embeddings and the Retrieval-Augmented Generation (RAG) architecture.
+* Improve document retrieval accuracy and AI-assisted information extraction.
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Weekly Tasks:
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Tasks | Start Date | Completion Date | Reference |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| Saturday | - Design document search functionality based on document name, document type, and upload date.<br>- Configure Global Secondary Indexes (GSIs) in Amazon DynamoDB to optimize query performance. | 27/06 | 27/06 | Amazon DynamoDB Documentation |
+| Sunday | - Integrate Amazon Titan Embeddings to generate vector embeddings from document content.<br>- Store vector embeddings together with document metadata in Amazon DynamoDB. | 28/06 | 28/06 | Amazon Bedrock Documentation |
+| Monday | - Develop the Semantic Search feature.<br>- Implement a Cosine Similarity algorithm to retrieve semantically related documents based on vector embeddings. | 29/06 | 29/06 | Amazon Bedrock Documentation |
+| Tuesday | - Develop an AI-powered chat feature using the Retrieval-Augmented Generation (RAG) architecture.<br>- Retrieve the most relevant document content before sending requests to Amazon Bedrock Claude Haiku. | 30/06 | 30/06 | Amazon Bedrock Documentation |
+| Wednesday | - Integrate the AI Chat interface into the application.<br>- Display AI-generated responses together with the referenced document excerpts used to generate the answers. | 01/07 | 01/07 | Angular Documentation |
+| Thursday | - Test the Semantic Search and AI Chat features using different document types.<br>- Evaluate retrieval accuracy and AI-generated responses.<br>- Refine prompts and retrieval algorithms to improve answer quality. | 02/07 | 02/07 | AWS Best Practices |
+| Friday | - Present the project progress to the mentor.<br>- Summarize the completed development tasks.<br>- Prepare the system for the final optimization phase and project demonstration. | 03/07 | 03/07 | Internal Project Documentation |
 
+### Results Achieved in Week 11:
 
-### Week 11 Achievements:
+* Successfully implemented metadata-based document search using **Amazon DynamoDB Global Secondary Indexes (GSIs)**.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Successfully integrated **Amazon Titan Embeddings** to generate vector embeddings from document content.
 
-* Successfully created and configured an AWS Free Tier account.
+* Developed a **Semantic Search** mechanism that retrieves documents based on semantic similarity rather than simple keyword matching.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Successfully implemented an **AI-powered chat system** using the **Retrieval-Augmented Generation (RAG)** architecture.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* Developed the complete RAG workflow, including:
+  * Generating vector embeddings from user queries.
+  * Retrieving the most relevant document segments from the vector database.
+  * Providing the retrieved context to **Amazon Bedrock Claude Haiku** to generate accurate responses.
 
-* Used AWS CLI to perform basic operations such as:
+* Successfully integrated the AI Chat interface and displayed AI-generated responses together with the relevant document references used during answer generation.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+* Completed functional testing of both Semantic Search and AI Chat using multiple document formats, while optimizing retrieval accuracy and AI response quality.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Successfully completed the development of the core AI capabilities of the **AI-Powered Smart Document Assistant**, establishing a strong foundation for final system optimization, production readiness, and the final project demonstration.

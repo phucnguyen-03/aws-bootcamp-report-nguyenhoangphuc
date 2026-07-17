@@ -1,125 +1,127 @@
 ---
 title: "Event 2"
-date: 2024-01-01
-weight: 1
+date: 2026-06-20
+weight: 2
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
+
+# Bài thu hoạch “AWS Cloud Knowledge Challenge”
 
 ### Mục Đích Của Sự Kiện
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+- Ôn tập và củng cố kiến thức về các dịch vụ AWS Cloud đã học trong quá trình thực tập.
+- Tạo môi trường học tập năng động thông qua hình thức thi đấu theo đội.
+- Nâng cao kỹ năng làm việc nhóm, phản xạ nhanh và giải quyết vấn đề.
+- Giúp sinh viên đánh giá mức độ hiểu biết về các dịch vụ AWS cơ bản và kiến trúc Cloud.
 
-### Danh Sách Diễn Giả
+### Hình Thức Tổ Chức
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+- Các sinh viên tham gia được chia thành **8 đội** để thi đấu với nhau.
+- Nội dung thi đấu gồm các câu hỏi trắc nghiệm liên quan đến AWS Cloud.
+- Các đội trả lời câu hỏi trong thời gian giới hạn.
+- Kết quả được tính dựa trên số câu trả lời đúng và tốc độ hoàn thành.
+- Mentor theo dõi, giải thích đáp án và bổ sung kiến thức sau từng phần thi.
 
 ### Nội Dung Nổi Bật
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+#### Kiến thức về các dịch vụ AWS cơ bản
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+- Ôn tập các dịch vụ nền tảng như Amazon EC2, Amazon S3, Amazon VPC và IAM.
+- Phân biệt chức năng của các nhóm dịch vụ:
+  - Compute
+  - Storage
+  - Networking
+  - Database
+  - Security
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+#### Amazon EC2 và Compute Services
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+- Vai trò của Amazon EC2 trong việc triển khai máy chủ ảo trên Cloud.
+- Khái niệm Instance Type, AMI, Key Pair và Security Group.
+- So sánh giữa EC2, AWS Lambda và các mô hình Serverless.
+- Hiểu cách lựa chọn dịch vụ Compute phù hợp với từng nhu cầu triển khai.
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
+#### Amazon S3 và Storage Services
 
-#### Domain-Driven Design (DDD)
+- Chức năng lưu trữ đối tượng của Amazon S3.
+- Khái niệm Bucket, Object, Storage Class và Bucket Policy.
+- Cách kiểm soát quyền truy cập dữ liệu và tránh public dữ liệu không cần thiết.
+- Ứng dụng S3 trong lưu trữ tài liệu, hình ảnh và file upload của hệ thống.
 
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
+#### Networking trên AWS
 
-#### Event-Driven Architecture
+- Ôn tập kiến thức về Amazon VPC, Subnet, Route Table và Internet Gateway.
+- Phân biệt Public Subnet và Private Subnet.
+- Hiểu vai trò của Security Group và Network ACL trong bảo mật mạng.
+- Nhận biết các thành phần quan trọng khi thiết kế kiến trúc mạng trên AWS.
 
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
+#### Identity and Access Management
 
-#### Compute Evolution
+- Vai trò của AWS IAM trong quản lý người dùng và phân quyền.
+- Phân biệt IAM User, IAM Group, IAM Role và IAM Policy.
+- Áp dụng nguyên tắc Least Privilege để tăng cường bảo mật.
+- Hiểu rủi ro khi sử dụng quyền Admin quá rộng trong môi trường thực tế.
 
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
+#### Kiến thức về Serverless và AI Services
 
-#### Amazon Q Developer
-
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
+- Ôn tập vai trò của AWS Lambda trong kiến trúc Serverless.
+- Tìm hiểu cách Lambda kết hợp với S3 Event để xử lý tác vụ tự động.
+- Nhắc lại vai trò của Amazon Bedrock trong việc tích hợp AI vào ứng dụng.
+- Liên hệ với project AI-Powered Smart Document Assistant đang thực hiện.
 
 ### Những Gì Học Được
 
-#### Tư Duy Thiết Kế
+#### Củng Cố Kiến Thức AWS
 
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
+- Nắm chắc hơn chức năng của các dịch vụ AWS nền tảng như EC2, S3, VPC, IAM, Lambda và DynamoDB.
+- Hiểu rõ hơn cách các dịch vụ AWS phối hợp với nhau trong một kiến trúc Cloud hoàn chỉnh.
+- Nhận ra tầm quan trọng của việc chọn đúng dịch vụ cho đúng bài toán thay vì chỉ biết sử dụng từng dịch vụ riêng lẻ.
 
-#### Kiến Trúc Kỹ Thuật
+#### Kỹ Năng Làm Việc Nhóm
 
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
+- Biết cách trao đổi nhanh với các thành viên trong đội trước khi chọn đáp án.
+- Rèn luyện khả năng lắng nghe ý kiến của người khác và thống nhất phương án trả lời.
+- Hiểu rằng trong môi trường làm việc thực tế, việc phối hợp nhóm tốt giúp giải quyết vấn đề nhanh hơn.
 
-#### Chiến Lược Hiện Đại Hóa
+#### Khả Năng Phản Xạ Và Tư Duy Kỹ Thuật
 
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
+- Rèn luyện khả năng nhận diện nhanh chức năng của từng dịch vụ AWS.
+- Biết cách loại trừ đáp án sai dựa trên đặc điểm kỹ thuật của từng dịch vụ.
+- Tăng khả năng ghi nhớ các khái niệm quan trọng thông qua hình thức học tập tương tác.
 
 ### Ứng Dụng Vào Công Việc
 
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
+Sau khi tham gia sự kiện, tôi có thể áp dụng kiến thức đã ôn tập vào project **AI-Powered Smart Document Assistant**, cụ thể:
 
-### Trải nghiệm trong event
+- Sử dụng Amazon S3 để lưu trữ tài liệu người dùng tải lên.
+- Áp dụng AWS Lambda để xử lý tài liệu tự động sau khi upload.
+- Dùng Amazon Cognito và IAM để đảm bảo xác thực và phân quyền.
+- Thiết kế Amazon VPC và các thành phần mạng phù hợp khi cần mở rộng hệ thống.
+- Sử dụng Amazon DynamoDB để lưu metadata và kết quả xử lý tài liệu.
+- Tận dụng Amazon Bedrock để xây dựng tính năng tóm tắt, phân loại và hỏi đáp tài liệu bằng AI.
+- Áp dụng nguyên tắc Least Privilege nhằm bảo vệ tài nguyên trong quá trình phát triển.
 
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
+### Trải Nghiệm Trong Sự Kiện
 
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
+Sự kiện **AWS Cloud Knowledge Challenge** là một hoạt động rất thú vị vì thay vì chỉ nghe chia sẻ lý thuyết, sinh viên được tham gia thi đấu trực tiếp theo đội. Việc chia thành 8 đội tạo ra không khí cạnh tranh tích cực, giúp mọi người chủ động trao đổi và vận dụng kiến thức đã học để trả lời các câu hỏi trắc nghiệm.
 
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
+Trong quá trình tham gia, tôi nhận thấy nhiều câu hỏi tuy nhìn đơn giản nhưng yêu cầu phải hiểu đúng bản chất của từng dịch vụ AWS. Ví dụ, khi gặp câu hỏi liên quan đến EC2, S3, VPC hoặc IAM, nếu chỉ học thuộc khái niệm thì rất dễ nhầm lẫn. Tuy nhiên, nếu hiểu rõ chức năng, phạm vi sử dụng và cách các dịch vụ kết hợp với nhau trong kiến trúc Cloud thì việc chọn đáp án sẽ chính xác hơn.
 
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
+Hoạt động này cũng giúp tôi nhận ra những phần kiến thức mình còn yếu, đặc biệt là các khái niệm liên quan đến Networking, Security và Serverless. Sau sự kiện, tôi có thêm động lực để ôn tập lại các dịch vụ AWS đã học và áp dụng tốt hơn vào project thực tập.
 
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
+### Bài Học Rút Ra
 
-#### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
+- Kiến thức AWS cần được hiểu theo cách hệ thống, không nên học rời rạc từng dịch vụ.
+- Khi thiết kế một ứng dụng Cloud, cần biết dịch vụ nào phù hợp với từng lớp của hệ thống như Compute, Storage, Database, Networking và Security.
+- Làm việc nhóm giúp tăng khả năng giải quyết vấn đề, đặc biệt khi cần đưa ra quyết định nhanh.
+- Các câu hỏi trắc nghiệm là cách hiệu quả để kiểm tra lại mức độ hiểu bài và phát hiện những phần kiến thức còn thiếu.
+- Việc tham gia các hoạt động tương tác giúp quá trình học AWS trở nên dễ nhớ và thực tế hơn.
 
-#### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+### Một số hình ảnh khi tham gia sự kiện
+
+* Thêm hình ảnh tham gia sự kiện tại đây.
+
+> Nhìn chung, sự kiện đã giúp tôi củng cố kiến thức AWS Cloud, rèn luyện kỹ năng làm việc nhóm và hiểu rõ hơn cách áp dụng các dịch vụ AWS vào project thực tế. Đây là một hoạt động bổ ích trong quá trình thực tập, giúp tôi tự tin hơn khi tiếp tục phát triển dự án AI-Powered Smart Document Assistant.

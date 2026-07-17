@@ -1,59 +1,56 @@
 ---
 title: "Worklog Tuần 10"
-date: 2024-01-01
-weight: 2
+date: 2026-06-20
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
+
 {{% notice warning %}}
 ⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
 {{% /notice %}}
 
-
 ### Mục tiêu tuần 10:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Hoàn thiện quy trình xử lý AI cho hệ thống.
+* Triển khai cơ chế thông báo thời gian thực (Realtime Notification).
+* Tối ưu hiệu suất xử lý của Lambda và Amazon Bedrock.
+* Kiểm thử và đánh giá toàn bộ AI Processing Pipeline.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| 6 | - Tích hợp AWS AppSync Subscription để cập nhật trạng thái xử lý tài liệu theo thời gian thực.<br>- Kiểm tra kết nối giữa Backend và Frontend. | 20/06 | 20/06 | AWS AppSync Documentation |
+| 7 | - Hiển thị tiến trình xử lý tài liệu trên giao diện người dùng.<br>- Đồng bộ trạng thái Upload, OCR, AI Processing và Completed theo thời gian thực. | 21/06 | 21/06 | AWS Amplify Documentation |
+| CN | - Tối ưu Lambda Function.<br>- Cải thiện tốc độ xử lý và giảm thời gian thực thi.<br>- Kiểm tra khả năng xử lý đồng thời của hệ thống. | 22/06 | 22/06 | AWS Lambda Best Practices |
+| 2 | - Tối ưu Prompt cho Amazon Bedrock Claude Haiku.<br>- Kiểm tra chất lượng kết quả tóm tắt và phân loại tài liệu.<br>- Điều chỉnh Prompt để tăng độ chính xác của AI. | 23/06 | 23/06 | Amazon Bedrock Documentation |
+| 3 | - Kiểm tra luồng xử lý tài liệu với nhiều định dạng như PDF, DOCX, PPTX và hình ảnh.<br>- Đánh giá kết quả OCR và AI Processing trên từng loại tài liệu. | 24/06 | 24/06 | Amazon Textract Documentation |
+| 4 | - Thực hiện kiểm thử tích hợp (Integration Testing).<br>- Kiểm tra khả năng xử lý lỗi và xử lý ngoại lệ của hệ thống.<br>- Khắc phục các lỗi phát sinh trong quá trình kiểm thử. | 25/06 | 25/06 | AWS Well-Architected Framework |
+| 5 | - Báo cáo tiến độ với Mentor.<br>- Tổng hợp kết quả AI Processing.<br>- Chuẩn bị kế hoạch triển khai chức năng Semantic Search và AI Chat cho giai đoạn tiếp theo. | 26/06 | 26/06 | Nội bộ Project |
 
 ### Kết quả đạt được tuần 10:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Hoàn thiện quy trình xử lý AI của hệ thống theo kiến trúc Serverless trên AWS.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Triển khai thành công AWS AppSync Subscription giúp cập nhật trạng thái xử lý tài liệu theo thời gian thực mà không cần tải lại trang.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Xây dựng giao diện theo dõi tiến trình xử lý tài liệu với các trạng thái:
+  * Uploading
+  * Processing
+  * OCR Completed
+  * AI Processing
+  * Completed
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Tối ưu hiệu suất của AWS Lambda, giúp giảm thời gian xử lý và cải thiện khả năng phản hồi của hệ thống.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* Điều chỉnh Prompt cho Amazon Bedrock Claude Haiku nhằm nâng cao chất lượng:
+  * AI Summary
+  * Document Classification
+  * Metadata Generation
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+* Kiểm thử thành công quá trình xử lý đối với nhiều định dạng tài liệu như PDF, DOCX, PPTX và Image.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Hoàn thành kiểm thử tích hợp giữa Amazon S3, AWS Lambda, Amazon Textract, Amazon Bedrock, AWS AppSync và Amazon DynamoDB.
 
-
+* Hoàn thiện AI Processing Pipeline, tạo nền tảng cho việc phát triển chức năng Semantic Search và AI-powered Document Chat trong giai đoạn tiếp theo.

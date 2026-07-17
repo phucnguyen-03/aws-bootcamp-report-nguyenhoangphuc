@@ -1,58 +1,46 @@
 ---
 title: "Worklog Tuần 12"
-date: 2024-01-01
-weight: 2
+date: 2026-07-04
+weight: 12
 chapter: false
-pre: " <b> 1.12 </b> "
+pre: " <b> 1.12. </b> "
 ---
+
 {{% notice warning %}}
 ⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
 {{% /notice %}}
 
 ### Mục tiêu tuần 12:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Hoàn thiện các chức năng còn lại của hệ thống.
+* Tối ưu hiệu năng và tăng cường tính ổn định của ứng dụng.
+* Thực hiện kiểm thử tổng thể trước khi trình bày Demo.
+* Chuẩn bị tài liệu kỹ thuật và báo cáo kết quả thực tập.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| 6 | - Rà soát toàn bộ các chức năng đã phát triển.<br>- Kiểm tra luồng xử lý từ Upload tài liệu đến AI Processing và AI Chat.<br>- Ghi nhận các lỗi cần khắc phục. | 04/07 | 04/07 | Nội bộ Project |
+| 7 | - Tối ưu cấu hình Amazon S3, AWS Lambda và Amazon DynamoDB.<br>- Kiểm tra khả năng xử lý đồng thời và tối ưu hiệu năng của hệ thống. | 05/07 | 05/07 | AWS Well-Architected Framework |
+| CN | - Cấu hình CloudWatch Logs và CloudWatch Alarm để giám sát hệ thống.<br>- Kiểm tra AWS Budget Alert nhằm đảm bảo chi phí sử dụng nằm trong giới hạn cho phép. | 06/07 | 06/07 | AWS CloudWatch Documentation |
+| 2 | - Thực hiện Unit Testing và Integration Testing cho các chức năng chính của hệ thống.<br>- Kiểm tra khả năng xử lý lỗi và cải thiện tính ổn định của ứng dụng. | 07/07 | 07/07 | AWS Best Practices |
+| 3 | - Hoàn thiện tài liệu kỹ thuật của dự án.<br>- Cập nhật README, sơ đồ kiến trúc hệ thống và hướng dẫn triển khai.<br>- Chuẩn bị nội dung báo cáo thực tập và Demo sản phẩm. | 08/07 | Đang thực hiện | Nội bộ Project |
+| 4 | - Tiếp tục hoàn thiện các chức năng còn tồn đọng theo góp ý của Mentor.<br>- Kiểm thử lần cuối trước khi trình bày Demo. | 09/07 | Dự kiến hoàn thành | Nội bộ Project |
+| 5 | - Tổng hợp kết quả đạt được trong quá trình thực tập.<br>- Chuẩn bị báo cáo cuối kỳ và Demo hệ thống trước Mentor. | 10/07 | Dự kiến hoàn thành | Nội bộ Project |
 
 ### Kết quả đạt được tuần 12:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Hoàn thành việc rà soát và kiểm thử các chức năng chính của hệ thống nhằm đảm bảo tính ổn định trước khi Demo.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Tiếp tục tối ưu hiệu năng của các dịch vụ AWS như Amazon S3, AWS Lambda và Amazon DynamoDB để cải thiện khả năng xử lý của hệ thống.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Thiết lập CloudWatch Logs và CloudWatch Alarm phục vụ cho việc giám sát hoạt động của ứng dụng và theo dõi các lỗi phát sinh.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Kiểm tra cơ chế AWS Budget Alert nhằm kiểm soát chi phí sử dụng dịch vụ trong quá trình phát triển và thử nghiệm.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* Hoàn thiện tài liệu kỹ thuật, cập nhật sơ đồ kiến trúc và hướng dẫn triển khai của dự án.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+* Tiếp tục tiếp nhận góp ý từ Mentor và hoàn thiện các chức năng còn lại trước khi kết thúc kỳ thực tập.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Chuẩn bị Demo sản phẩm và báo cáo tổng kết, hướng tới việc hoàn thành dự án **AI-Powered Smart Document Assistant** theo đúng kế hoạch thực tập.

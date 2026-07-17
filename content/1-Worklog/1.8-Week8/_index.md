@@ -1,57 +1,58 @@
 ---
-title: "Week 8 Worklog"
-date: 2024-01-01
-weight: 1
+title: "Worklog Week 8"
+date: 2026-06-06
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
+
+{{% notice warning %}}
+⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it word for word** into your internship report, including this warning.
 {{% /notice %}}
 
+### Weekly Objectives:
 
-### Week 8 Objectives:
+* Develop the first Minimum Viable Product (MVP) of the system.
+* Implement user authentication using Amazon Cognito.
+* Develop document management features with Amazon S3.
+* Complete the basic user interface and integrate the frontend with the backend.
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Weekly Tasks:
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Tasks | Start Date | Completion Date | Reference |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| Saturday | - Implement user registration and sign-in using Amazon Cognito.<br>- Configure the User Pool, Authentication Flow, and Email Verification for user authentication. | 06/06 | 06/06 | AWS Cognito Documentation |
+| Sunday | - Configure the Forgot Password feature and Multi-Factor Authentication (MFA).<br>- Set up Email OTP for account verification. | 07/06 | 07/06 | AWS Cognito Documentation |
+| Monday | - Integrate Amazon S3 into the system.<br>- Implement document uploads using Presigned URLs.<br>- Validate file types and file size limits before uploading. | 08/06 | 08/06 | Amazon S3 Documentation |
+| Tuesday | - Develop GraphQL APIs using AWS AppSync.<br>- Design GraphQL Queries and Mutations for document management.<br>- Store document metadata in Amazon DynamoDB. | 09/06 | 09/06 | AWS AppSync Documentation |
+| Wednesday | - Develop the document management interface.<br>- Implement document preview, download, and delete features.<br>- Configure document access permissions using Amazon S3 Access Levels. | 10/06 | 10/06 | AWS Amplify Storage Documentation |
+| Thursday | - Improve the Angular user interface with responsive design.<br>- Implement Dark Mode and Light Mode support.<br>- Test the application's responsiveness across multiple screen sizes. | 11/06 | 11/06 | Angular Documentation |
+| Friday | - Perform end-to-end testing of all MVP features.<br>- Present the project progress to the mentor.<br>- Collect feedback and prepare the implementation plan for AI integration in the next phase. | 12/06 | 12/06 | Internal Project Documentation |
 
+### Results Achieved in Week 8:
 
-### Week 8 Achievements:
+* Successfully completed the first **Minimum Viable Product (MVP)** of the **AI-Powered Smart Document Assistant**.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Successfully implemented user authentication using **Amazon Cognito**, including:
+  * User Registration
+  * User Login
+  * Email Verification
+  * Forgot Password
+  * Multi-Factor Authentication (MFA)
 
-* Successfully created and configured an AWS Free Tier account.
+* Successfully integrated **Amazon S3** for secure document storage using Presigned URLs, improving upload performance while maintaining data security.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Developed **GraphQL APIs** with **AWS AppSync** and stored document metadata in **Amazon DynamoDB**.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* Successfully implemented the core document management features, including:
+  * Document Upload
+  * Document List
+  * File Preview
+  * File Download
+  * File Deletion
 
-* Used AWS CLI to perform basic operations such as:
+* Configured document access permissions using **Amazon S3 Access Levels**, ensuring that documents can only be accessed by authorized users.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+* Completed a responsive user interface using **Angular**, with support for both **Dark Mode** and **Light Mode**.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Successfully tested all MVP functionalities and completed the first functional version of the system, providing a solid foundation for integrating **Amazon Textract** and **Amazon Bedrock** in the next development phase.

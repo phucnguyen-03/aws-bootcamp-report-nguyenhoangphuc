@@ -1,59 +1,55 @@
 ---
 title: "Worklog Tuần 9"
-date: 2024-01-01
-weight: 1
+date: 2026-06-13
+weight: 9
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
+
 {{% notice warning %}}
 ⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
 {{% /notice %}}
 
-
 ### Mục tiêu tuần 9:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tích hợp quy trình xử lý tài liệu tự động bằng AWS Serverless.
+* Xây dựng luồng OCR và trích xuất nội dung tài liệu.
+* Tích hợp Amazon Bedrock để tóm tắt và phân loại tài liệu.
+* Lưu trữ kết quả xử lý AI vào cơ sở dữ liệu.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| 6 | - Cấu hình Amazon S3 Event Trigger.<br>- Xây dựng AWS Lambda để tự động xử lý khi người dùng tải tài liệu lên Amazon S3.<br>- Kiểm tra luồng kích hoạt tự động của hệ thống. | 13/06 | 13/06 | AWS Lambda Documentation |
+| 7 | - Tích hợp Amazon Textract để nhận dạng văn bản (OCR) đối với PDF và hình ảnh.<br>- Cấu hình quy trình xử lý bất đồng bộ (Asynchronous Processing) sử dụng Amazon SNS Callback. | 14/06 | 14/06 | Amazon Textract Documentation |
+| CN | - Phát triển Lambda Layer để xử lý các tệp DOCX và PPTX.<br>- Tích hợp các thư viện hỗ trợ trích xuất nội dung tài liệu và chuẩn hóa dữ liệu trước khi xử lý AI. | 15/06 | 15/06 | AWS Lambda Documentation |
+| 2 | - Tích hợp Amazon Bedrock Claude Haiku.<br>- Xây dựng Prompt phục vụ chức năng tóm tắt nội dung và phân loại tài liệu.<br>- Kiểm tra kết quả phản hồi từ mô hình AI. | 16/06 | 16/06 | Amazon Bedrock Documentation |
+| 3 | - Thiết kế cấu trúc lưu trữ Metadata trên Amazon DynamoDB.<br>- Lưu nội dung OCR, kết quả tóm tắt và thông tin phân loại của tài liệu sau khi xử lý AI. | 17/06 | 17/06 | Amazon DynamoDB Documentation |
+| 4 | - Xây dựng cơ chế kiểm tra Quota AI theo từng người dùng trước khi gửi yêu cầu đến Amazon Bedrock.<br>- Tối ưu luồng xử lý nhằm giảm chi phí sử dụng dịch vụ AI. | 18/06 | 18/06 | AWS Best Practices |
+| 5 | - Kiểm thử toàn bộ quy trình xử lý tài liệu từ Upload đến AI.<br>- Báo cáo tiến độ với Mentor.<br>- Tiếp nhận góp ý và điều chỉnh kiến trúc xử lý AI khi cần thiết. | 19/06 | 19/06 | Nội bộ Project |
 
 ### Kết quả đạt được tuần 9:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Xây dựng thành công quy trình xử lý tài liệu tự động theo kiến trúc Serverless trên AWS.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Hoàn thành cơ chế kích hoạt AWS Lambda thông qua Amazon S3 Event mỗi khi người dùng tải tài liệu lên hệ thống.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Tích hợp thành công Amazon Textract để nhận dạng văn bản (OCR) đối với tài liệu PDF và hình ảnh bằng phương thức xử lý bất đồng bộ.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Phát triển Lambda Layer để trích xuất nội dung từ các tệp DOCX và PPTX trước khi gửi đến hệ thống AI.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* Tích hợp Amazon Bedrock Claude Haiku nhằm:
+  * Tóm tắt nội dung tài liệu
+  * Phân loại tài liệu
+  * Chuẩn hóa kết quả xử lý
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+* Thiết kế và lưu trữ thành công Metadata trên Amazon DynamoDB, bao gồm:
+  * Nội dung OCR
+  * Kết quả tóm tắt
+  * Thông tin phân loại
+  * Trạng thái xử lý
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Áp dụng cơ chế kiểm soát AI Quota nhằm hạn chế việc sử dụng tài nguyên vượt mức và tối ưu chi phí triển khai.
 
-
+* Hoàn thành kiểm thử toàn bộ quy trình xử lý AI từ khi người dùng tải tài liệu lên cho đến khi kết quả được lưu vào hệ thống, tạo nền tảng cho việc xây dựng chức năng thông báo thời gian thực và AI Chat trong giai đoạn tiếp theo.
