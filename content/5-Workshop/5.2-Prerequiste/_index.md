@@ -1,242 +1,142 @@
 ---
-title : "Prerequiste"
-date : 2024-01-01 
-weight : 2 
-chapter : false
-pre : " <b> 5.2. </b> "
+title: "Prerequisites & Infrastructure Setup"
+date: 2024-01-01
+weight: 2
+chapter: false
+pre: " <b> 5.2. </b> "
 ---
 
-#### IAM permissions
-Add the following IAM permission policy to your user account to deploy and cleanup this workshop.
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "VisualEditor0",
-            "Effect": "Allow",
-            "Action": [
-                "cloudformation:*",
-                "cloudwatch:*",
-                "ec2:AcceptTransitGatewayPeeringAttachment",
-                "ec2:AcceptTransitGatewayVpcAttachment",
-                "ec2:AllocateAddress",
-                "ec2:AssociateAddress",
-                "ec2:AssociateIamInstanceProfile",
-                "ec2:AssociateRouteTable",
-                "ec2:AssociateSubnetCidrBlock",
-                "ec2:AssociateTransitGatewayRouteTable",
-                "ec2:AssociateVpcCidrBlock",
-                "ec2:AttachInternetGateway",
-                "ec2:AttachNetworkInterface",
-                "ec2:AttachVolume",
-                "ec2:AttachVpnGateway",
-                "ec2:AuthorizeSecurityGroupEgress",
-                "ec2:AuthorizeSecurityGroupIngress",
-                "ec2:CreateClientVpnEndpoint",
-                "ec2:CreateClientVpnRoute",
-                "ec2:CreateCustomerGateway",
-                "ec2:CreateDhcpOptions",
-                "ec2:CreateFlowLogs",
-                "ec2:CreateInternetGateway",
-                "ec2:CreateLaunchTemplate",
-                "ec2:CreateNetworkAcl",
-                "ec2:CreateNetworkInterface",
-                "ec2:CreateNetworkInterfacePermission",
-                "ec2:CreateRoute",
-                "ec2:CreateRouteTable",
-                "ec2:CreateSecurityGroup",
-                "ec2:CreateSubnet",
-                "ec2:CreateSubnetCidrReservation",
-                "ec2:CreateTags",
-                "ec2:CreateTransitGateway",
-                "ec2:CreateTransitGatewayPeeringAttachment",
-                "ec2:CreateTransitGatewayPrefixListReference",
-                "ec2:CreateTransitGatewayRoute",
-                "ec2:CreateTransitGatewayRouteTable",
-                "ec2:CreateTransitGatewayVpcAttachment",
-                "ec2:CreateVpc",
-                "ec2:CreateVpcEndpoint",
-                "ec2:CreateVpcEndpointConnectionNotification",
-                "ec2:CreateVpcEndpointServiceConfiguration",
-                "ec2:CreateVpnConnection",
-                "ec2:CreateVpnConnectionRoute",
-                "ec2:CreateVpnGateway",
-                "ec2:DeleteCustomerGateway",
-                "ec2:DeleteFlowLogs",
-                "ec2:DeleteInternetGateway",
-                "ec2:DeleteNetworkInterface",
-                "ec2:DeleteNetworkInterfacePermission",
-                "ec2:DeleteRoute",
-                "ec2:DeleteRouteTable",
-                "ec2:DeleteSecurityGroup",
-                "ec2:DeleteSubnet",
-                "ec2:DeleteSubnetCidrReservation",
-                "ec2:DeleteTags",
-                "ec2:DeleteTransitGateway",
-                "ec2:DeleteTransitGatewayPeeringAttachment",
-                "ec2:DeleteTransitGatewayPrefixListReference",
-                "ec2:DeleteTransitGatewayRoute",
-                "ec2:DeleteTransitGatewayRouteTable",
-                "ec2:DeleteTransitGatewayVpcAttachment",
-                "ec2:DeleteVpc",
-                "ec2:DeleteVpcEndpoints",
-                "ec2:DeleteVpcEndpointServiceConfigurations",
-                "ec2:DeleteVpnConnection",
-                "ec2:DeleteVpnConnectionRoute",
-                "ec2:Describe*",
-                "ec2:DetachInternetGateway",
-                "ec2:DisassociateAddress",
-                "ec2:DisassociateRouteTable",
-                "ec2:GetLaunchTemplateData",
-                "ec2:GetTransitGatewayAttachmentPropagations",
-                "ec2:ModifyInstanceAttribute",
-                "ec2:ModifySecurityGroupRules",
-                "ec2:ModifyTransitGatewayVpcAttachment",
-                "ec2:ModifyVpcAttribute",
-                "ec2:ModifyVpcEndpoint",
-                "ec2:ReleaseAddress",
-                "ec2:ReplaceRoute",
-                "ec2:RevokeSecurityGroupEgress",
-                "ec2:RevokeSecurityGroupIngress",
-                "ec2:RunInstances",
-                "ec2:StartInstances",
-                "ec2:StopInstances",
-                "ec2:UpdateSecurityGroupRuleDescriptionsEgress",
-                "ec2:UpdateSecurityGroupRuleDescriptionsIngress",
-                "iam:AddRoleToInstanceProfile",
-                "iam:AttachRolePolicy",
-                "iam:CreateInstanceProfile",
-                "iam:CreatePolicy",
-                "iam:CreateRole",
-                "iam:DeleteInstanceProfile",
-                "iam:DeletePolicy",
-                "iam:DeleteRole",
-                "iam:DeleteRolePolicy",
-                "iam:DetachRolePolicy",
-                "iam:GetInstanceProfile",
-                "iam:GetPolicy",
-                "iam:GetRole",
-                "iam:GetRolePolicy",
-                "iam:ListPolicyVersions",
-                "iam:ListRoles",
-                "iam:PassRole",
-                "iam:PutRolePolicy",
-                "iam:RemoveRoleFromInstanceProfile",
-                "lambda:CreateFunction",
-                "lambda:DeleteFunction",
-                "lambda:DeleteLayerVersion",
-                "lambda:GetFunction",
-                "lambda:GetLayerVersion",
-                "lambda:InvokeFunction",
-                "lambda:PublishLayerVersion",
-                "logs:CreateLogGroup",
-                "logs:DeleteLogGroup",
-                "logs:DescribeLogGroups",
-                "logs:PutRetentionPolicy",
-                "route53:ChangeTagsForResource",
-                "route53:CreateHealthCheck",
-                "route53:CreateHostedZone",
-                "route53:CreateTrafficPolicy",
-                "route53:DeleteHostedZone",
-                "route53:DisassociateVPCFromHostedZone",
-                "route53:GetHostedZone",
-                "route53:ListHostedZones",
-                "route53domains:ListDomains",
-                "route53domains:ListOperations",
-                "route53domains:ListTagsForDomain",
-                "route53resolver:AssociateResolverEndpointIpAddress",
-                "route53resolver:AssociateResolverRule",
-                "route53resolver:CreateResolverEndpoint",
-                "route53resolver:CreateResolverRule",
-                "route53resolver:DeleteResolverEndpoint",
-                "route53resolver:DeleteResolverRule",
-                "route53resolver:DisassociateResolverEndpointIpAddress",
-                "route53resolver:DisassociateResolverRule",
-                "route53resolver:GetResolverEndpoint",
-                "route53resolver:GetResolverRule",
-                "route53resolver:ListResolverEndpointIpAddresses",
-                "route53resolver:ListResolverEndpoints",
-                "route53resolver:ListResolverRuleAssociations",
-                "route53resolver:ListResolverRules",
-                "route53resolver:ListTagsForResource",
-                "route53resolver:UpdateResolverEndpoint",
-                "route53resolver:UpdateResolverRule",
-                "s3:AbortMultipartUpload",
-                "s3:CreateBucket",
-                "s3:DeleteBucket",
-                "s3:DeleteObject",
-                "s3:GetAccountPublicAccessBlock",
-                "s3:GetBucketAcl",
-                "s3:GetBucketOwnershipControls",
-                "s3:GetBucketPolicy",
-                "s3:GetBucketPolicyStatus",
-                "s3:GetBucketPublicAccessBlock",
-                "s3:GetObject",
-                "s3:GetObjectVersion",
-                "s3:GetBucketVersioning",
-                "s3:ListAccessPoints",
-                "s3:ListAccessPointsForObjectLambda",
-                "s3:ListAllMyBuckets",
-                "s3:ListBucket",
-                "s3:ListBucketMultipartUploads",
-                "s3:ListBucketVersions",
-                "s3:ListJobs",
-                "s3:ListMultipartUploadParts",
-                "s3:ListMultiRegionAccessPoints",
-                "s3:ListStorageLensConfigurations",
-                "s3:PutAccountPublicAccessBlock",
-                "s3:PutBucketAcl",
-                "s3:PutBucketPolicy",
-                "s3:PutBucketPublicAccessBlock",
-                "s3:PutObject",
-                "secretsmanager:CreateSecret",
-                "secretsmanager:DeleteSecret",
-                "secretsmanager:DescribeSecret",
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:ListSecrets",
-                "secretsmanager:ListSecretVersionIds",
-                "secretsmanager:PutResourcePolicy",
-                "secretsmanager:TagResource",
-                "secretsmanager:UpdateSecret",
-                "sns:ListTopics",
-                "ssm:DescribeInstanceProperties",
-                "ssm:DescribeSessions",
-                "ssm:GetConnectionStatus",
-                "ssm:GetParameters",
-                "ssm:ListAssociations",
-                "ssm:ResumeSession",
-                "ssm:StartSession",
-                "ssm:TerminateSession"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
+## Prerequisites & Infrastructure Setup
 
+Before running the document processing pipeline, the following AWS infrastructure must be in place. All resources are provisioned automatically by **AWS Amplify Gen 2** via CDK.
+
+---
+
+### 1. Initialize the Amplify Project
+
+```bash
+npm create amplify@latest smart-document-assistant
+cd smart-document-assistant
+npm install @aws-amplify/backend @aws-amplify/backend-cli
+npm install aws-amplify
 ```
 
-#### Provision resources using CloudFormation
+---
 
-In this lab, we will use **N.Virginia region (us-east-1)**.
+### 2. Amazon Cognito — User Authentication
 
-To prepare the workshop environment, deploy this **CloudFormation Template** (click link): [PrivateLinkWorkshop ](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.us-east-1.amazonaws.com/reinvent-endpoints-builders-session/Nested.yaml&stackName=PLCloudSetup). Accept all of the defaults when deploying the template. 
+Define authentication in `amplify/auth/resource.ts`:
 
-![create stack](/images/5-Workshop/5.2-Prerequisite/create-stack1.png)
+```typescript
+export const auth = defineAuth({
+  loginWith: {
+    email: true,
+  },
+  email: {
+    fromEmail: 'noreply@yourdomain.com',
+    fromName: 'Smart Document Assistant',
+  },
+});
+```
 
-+ Tick 2 acknowledgement boxes
-+ Choose **Create stack**
+The Cognito User Pool handles:
+- User registration and login via **Email/Password**
+- **OTP verification** on sign-up (delivered via Amazon SES)
+- Full forgot-password and reset-password flows
 
-![create stack](/images/5-Workshop/5.2-Prerequisite/create-stack2.png)
+After login, Cognito issues a **JWT Token** used by AppSync for **User Pool Authorization** on all GraphQL requests. The Angular frontend uses **Amplify Auth SDK** — no manual token management needed.
 
-The **ClouddFormation** deployment requires about 15 minutes to complete.
+> **Post-deploy step:** Go to SES Console → Verified Identities → verify the `fromEmail` address. Request SES production access to send to any recipient (sandbox only allows verified addresses).
 
-![complete](/images/5-Workshop/5.2-Prerequisite/complete.png)
+---
 
-+ **2 VPCs** have been created
+### 3. Amazon S3 — Document Storage
 
-![vpcs](/images/5-Workshop/5.2-Prerequisite/vpcs.png)
+Define storage in `amplify/storage/resource.ts`:
 
-+ **3 EC2s** have been created
+```typescript
+export const storage = defineStorage({
+  name: 'smart-doc-storage',
+  access: (allow) => ({
+    'raw/{entity_id}/*': [
+      allow.entity('identity').to(['read', 'write', 'delete']),
+    ],
+    'processed/*': [
+      allow.authenticated.to(['read']),
+    ],
+  }),
+});
+```
 
-![EC2](/images/5-Workshop/5.2-Prerequisite/ec2.png)
+**Bucket structure:**
+
+| Prefix | Purpose |
+|---|---|
+| `raw/` | Upload destination. Files stored at `raw/{identityId}/{timestamp}-{filename}` — data isolated per user. |
+| `processed/` | Created by Lambda B when extracted text exceeds **300 KB** to avoid DynamoDB's 400 KB item size limit. |
+
+The S3 `NotificationConfiguration` (`s3:ObjectCreated:Put` on `raw/`) is attached directly to `CfnBucket` in `amplify/backend.ts` — this is the pipeline entry point.
+
+---
+
+### 4. AWS AppSync — GraphQL API
+
+Define the data schema in `amplify/data/resource.ts`:
+
+```typescript
+const schema = a.schema({
+  Document: a.model({
+    owner:          a.string(),
+    fileName:       a.string(),
+    fileType:       a.string(),
+    fileSize:       a.integer(),
+    s3Key:          a.string(),
+    status:         a.string(),   // uploaded | processing | text_extracted | done | error
+    textractJobId:  a.string(),
+    summary:        a.string(),
+    category:       a.string(),   // Hợp đồng | Hóa đơn | Báo cáo | Khác
+    extractedText:  a.string(),
+    processedS3Key: a.string(),
+    createdAt:      a.string(),
+  }).authorization((allow) => [allow.owner()]),
+
+  UserQuota: a.model({
+    uploadedCount: a.integer(),
+    maxUploads:    a.integer(),   // default 50
+  }).identifier(['owner'])
+    .authorization((allow) => [allow.owner()]),
+});
+
+export const data = defineData({
+  schema,
+  authorizationModes: {
+    defaultAuthorizationMode: 'userPool',
+  },
+});
+```
+
+Both models use `allow.owner()` — each user can only read and write their own records.
+
+---
+
+### 5. Run Sandbox Locally
+
+```bash
+npx ampx sandbox
+```
+
+This creates `amplify_outputs.json` with real AWS endpoints. The frontend reads this file at runtime to connect to Cognito, AppSync, and S3.
+
+---
+
+### 6. Connect to AWS SSM Parameter Store
+
+Store the OpenRouter API key before deploying Lambda functions:
+
+1. Open [AWS SSM Parameter Store](https://console.aws.amazon.com/systems-manager/parameters)
+2. Create a new parameter:
+   - **Name:** `/amplify/{APP_ID}/main/OPENROUTER_API_KEY`
+   - **Type:** `SecureString`
+   - **Value:** `sk-or-v1-...`
+3. Enable Amazon Bedrock model access:
+   - Open [Bedrock Console](https://console.aws.amazon.com/bedrock/) → **Model access** → enable **Amazon Nova Lite**
