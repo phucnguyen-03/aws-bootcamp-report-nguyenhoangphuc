@@ -22,31 +22,7 @@ Once completed, you will have a fully functional pipeline:
 
 ### Architecture Overview
 
-```
-┌──────────┐    ┌──────┐   S3 Event    ┌──────────┐   Textract Async   ┌──────────┐
-│ Frontend │───▶│  S3  │─────────────▶│ Lambda A │──────────────────▶│ Textract │
-│ (Angular)│    │bucket│              │ (trigger)│                   │   OCR    │
-└──────────┘    └──────┘              └──────────┘                   └────┬─────┘
-                                           │                             │
-                                           │ (DOCX/PPTX:                 │ SNS callback
-                                           │  extract local)             ▼
-                                           │                        ┌──────────┐
-                                           ▼                        │   SNS    │
-                                     ┌──────────┐                   │  Topic   │
-                                     │ DynamoDB  │                   └────┬─────┘
-                                     │ Document  │                        │
-                                     │  Table    │◀───────────────────────┤
-                                     └─────┬────┘                   ┌──────────┐
-                                           │ DDB Stream             │ Lambda B │
-                                           │ (MODIFY +              │ (textract│
-                                           │  status=processing)    │  result) │
-                                           ▼                        └──────────┘
-                                     ┌──────────┐                        │
-                                     │ Lambda B │◀───────────────────────┘
-                                     │ (AI      │
-                                     │ analysis)│
-                                     └──────────┘
-```
+![Architecture Diagram](/images/2-Proposal/architecture.png)
 
 ---
 

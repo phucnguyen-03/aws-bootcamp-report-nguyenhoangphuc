@@ -5,104 +5,189 @@ weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-Tại phần này, bạn cần tóm tắt các nội dung trong workshop mà bạn **dự tính** sẽ làm.
+# Smart Document Assistant
+## Giải pháp AWS Serverless cho xử lý tài liệu tự động
 
-# IoT Weather Platform for Lab Research  
-## Giải pháp AWS Serverless hợp nhất cho giám sát thời tiết thời gian thực  
+### 1. Tóm tắt
 
-### 1. Tóm tắt điều hành  
-IoT Weather Platform được thiết kế dành cho nhóm *ITea Lab* tại TP. Hồ Chí Minh nhằm nâng cao khả năng thu thập và phân tích dữ liệu thời tiết. Nền tảng hỗ trợ tối đa 5 trạm thời tiết, có khả năng mở rộng lên 10–15 trạm, sử dụng thiết bị biên Raspberry Pi kết hợp cảm biến ESP32 để truyền dữ liệu qua MQTT. Nền tảng tận dụng các dịch vụ AWS Serverless để cung cấp giám sát thời gian thực, phân tích dự đoán và tiết kiệm chi phí, với quyền truy cập giới hạn cho 5 thành viên phòng lab thông qua Amazon Cognito.  
+**Smart Document Assistant** là ứng dụng web cho phép người dùng tải lên tài liệu (PDF, Word, PowerPoint, ảnh), hệ thống tự động trích xuất văn bản bằng OCR và phân tích nội dung bằng AI để tạo ra bản tóm tắt và phân loại tài liệu theo chủ đề.
 
-### 2. Tuyên bố vấn đề  
-*Vấn đề hiện tại*  
-Các trạm thời tiết hiện tại yêu cầu thu thập dữ liệu thủ công, khó quản lý khi có nhiều trạm. Không có hệ thống tập trung cho dữ liệu hoặc phân tích thời gian thực, và các nền tảng bên thứ ba thường tốn kém và quá phức tạp.  
+- **URL deploy:** https://main.d149j5w6r2swxd.amplifyapp.com
+- **GitHub:** https://github.com/VuDaiLoc/smart-document-assistant
 
-*Giải pháp*  
-Nền tảng sử dụng AWS IoT Core để tiếp nhận dữ liệu MQTT, AWS Lambda và API Gateway để xử lý, Amazon S3 để lưu trữ (bao gồm data lake), và AWS Glue Crawlers cùng các tác vụ ETL để trích xuất, chuyển đổi, tải dữ liệu từ S3 data lake sang một S3 bucket khác để phân tích. AWS Amplify với Next.js cung cấp giao diện web, và Amazon Cognito đảm bảo quyền truy cập an toàn. Tương tự như Thingsboard và CoreIoT, người dùng có thể đăng ký thiết bị mới và quản lý kết nối, nhưng nền tảng này hoạt động ở quy mô nhỏ hơn và phục vụ mục đích sử dụng nội bộ. Các tính năng chính bao gồm bảng điều khiển thời gian thực, phân tích xu hướng và chi phí vận hành thấp.  
+---
 
-*Lợi ích và hoàn vốn đầu tư (ROI)*  
-Giải pháp tạo nền tảng cơ bản để các thành viên phòng lab phát triển một nền tảng IoT lớn hơn, đồng thời cung cấp nguồn dữ liệu cho những người nghiên cứu AI phục vụ huấn luyện mô hình hoặc phân tích. Nền tảng giảm bớt báo cáo thủ công cho từng trạm thông qua hệ thống tập trung, đơn giản hóa quản lý và bảo trì, đồng thời cải thiện độ tin cậy dữ liệu. Chi phí hàng tháng ước tính 0,66 USD (theo AWS Pricing Calculator), tổng cộng 7,92 USD cho 12 tháng. Tất cả thiết bị IoT đã được trang bị từ hệ thống trạm thời tiết hiện tại, không phát sinh chi phí phát triển thêm. Thời gian hoàn vốn 6–12 tháng nhờ tiết kiệm đáng kể thời gian thao tác thủ công.  
+### 2. Vấn đề thực tế
 
-### 3. Kiến trúc giải pháp  
-Nền tảng áp dụng kiến trúc AWS Serverless để quản lý dữ liệu từ 5 trạm dựa trên Raspberry Pi, có thể mở rộng lên 15 trạm. Dữ liệu được tiếp nhận qua AWS IoT Core, lưu trữ trong S3 data lake và xử lý bởi AWS Glue Crawlers và ETL jobs để chuyển đổi và tải vào một S3 bucket khác cho mục đích phân tích. Lambda và API Gateway xử lý bổ sung, trong khi Amplify với Next.js cung cấp bảng điều khiển được bảo mật bởi Cognito.  
+Trong môi trường làm việc hiện đại, người dùng thường xuyên phải xử lý khối lượng lớn tài liệu dạng scan hoặc file văn phòng. Các vấn đề cụ thể:
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+- Tốn thời gian đọc và tóm tắt tài liệu thủ công
+- Khó phân loại khi có nhiều tài liệu cùng lúc (hợp đồng, hóa đơn, báo cáo...)
+- Tài liệu scan dạng ảnh không thể tìm kiếm hay copy text
+- Lưu trữ phân tán, thiếu hệ thống quản lý tập trung
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+---
 
-*Dịch vụ AWS sử dụng*  
-- *AWS IoT Core*: Tiếp nhận dữ liệu MQTT từ 5 trạm, mở rộng lên 15.  
-- *AWS Lambda*: Xử lý dữ liệu và kích hoạt Glue jobs (2 hàm).  
-- *Amazon API Gateway*: Giao tiếp với ứng dụng web.  
-- *Amazon S3*: Lưu trữ dữ liệu thô (data lake) và dữ liệu đã xử lý (2 bucket).  
-- *AWS Glue*: Crawlers lập chỉ mục dữ liệu, ETL jobs chuyển đổi và tải dữ liệu.  
-- *AWS Amplify*: Lưu trữ giao diện web Next.js.  
-- *Amazon Cognito*: Quản lý quyền truy cập cho người dùng phòng lab.  
+### 3. Giải pháp đề xuất
 
-*Thiết kế thành phần*  
-- *Thiết bị biên*: Raspberry Pi thu thập và lọc dữ liệu cảm biến, gửi tới IoT Core.  
-- *Tiếp nhận dữ liệu*: AWS IoT Core nhận tin nhắn MQTT từ thiết bị biên.  
-- *Lưu trữ dữ liệu*: Dữ liệu thô lưu trong S3 data lake; dữ liệu đã xử lý lưu ở một S3 bucket khác.  
-- *Xử lý dữ liệu*: AWS Glue Crawlers lập chỉ mục dữ liệu; ETL jobs chuyển đổi để phân tích.  
-- *Giao diện web*: AWS Amplify lưu trữ ứng dụng Next.js cho bảng điều khiển và phân tích thời gian thực.  
-- *Quản lý người dùng*: Amazon Cognito giới hạn 5 tài khoản hoạt động.  
+**Kiến trúc tổng thể:**
 
-### 4. Triển khai kỹ thuật  
-*Các giai đoạn triển khai*  
-Dự án gồm 2 phần — thiết lập trạm thời tiết biên và xây dựng nền tảng thời tiết — mỗi phần trải qua 4 giai đoạn:  
-1. *Nghiên cứu và vẽ kiến trúc*: Nghiên cứu Raspberry Pi với cảm biến ESP32 và thiết kế kiến trúc AWS Serverless (1 tháng trước kỳ thực tập).  
-2. *Tính toán chi phí và kiểm tra tính khả thi*: Sử dụng AWS Pricing Calculator để ước tính và điều chỉnh (Tháng 1).  
-3. *Điều chỉnh kiến trúc để tối ưu chi phí/giải pháp*: Tinh chỉnh (ví dụ tối ưu Lambda với Next.js) để đảm bảo hiệu quả (Tháng 2).  
-4. *Phát triển, kiểm thử, triển khai*: Lập trình Raspberry Pi, AWS services với CDK/SDK và ứng dụng Next.js, sau đó kiểm thử và đưa vào vận hành (Tháng 2–3).  
+![Architecture Diagram](/images/2-Proposal/architecture.png)
 
-*Yêu cầu kỹ thuật*  
-- *Trạm thời tiết biên*: Cảm biến (nhiệt độ, độ ẩm, lượng mưa, tốc độ gió), vi điều khiển ESP32, Raspberry Pi làm thiết bị biên. Raspberry Pi chạy Raspbian, sử dụng Docker để lọc dữ liệu và gửi 1 MB/ngày/trạm qua MQTT qua Wi-Fi.  
-- *Nền tảng thời tiết*: Kiến thức thực tế về AWS Amplify (lưu trữ Next.js), Lambda (giảm thiểu do Next.js xử lý), AWS Glue (ETL), S3 (2 bucket), IoT Core (gateway và rules), và Cognito (5 người dùng). Sử dụng AWS CDK/SDK để lập trình (ví dụ IoT Core rules tới S3). Next.js giúp giảm tải Lambda cho ứng dụng web fullstack.  
+**Các dịch vụ AWS sử dụng:**
 
-### 5. Lộ trình & Mốc triển khai  
-- *Trước thực tập (Tháng 0)*: 1 tháng lên kế hoạch và đánh giá trạm cũ.  
-- *Thực tập (Tháng 1–3)*:  
-    - Tháng 1: Học AWS và nâng cấp phần cứng.  
-    - Tháng 2: Thiết kế và điều chỉnh kiến trúc.  
-    - Tháng 3: Triển khai, kiểm thử, đưa vào sử dụng.  
-- *Sau triển khai*: Nghiên cứu thêm trong vòng 1 năm.  
+| Dịch vụ | Vai trò |
+|---|---|
+| Amplify Hosting | Host Angular SPA, CI/CD tự động từ GitHub |
+| Amazon S3 | Lưu file gốc (`raw/`) và text đã xử lý (`processed/`) |
+| AWS Lambda ×2 | Xử lý pipeline tài liệu (upload trigger + OCR result) |
+| Amazon Textract | OCR trích xuất text từ PDF và ảnh (bất đồng bộ) |
+| Amazon SNS | Nhận callback async từ Textract khi OCR hoàn thành |
+| Amazon DynamoDB | Lưu metadata và kết quả AI của từng tài liệu |
+| AWS AppSync | GraphQL API cho frontend truy vấn dữ liệu |
+| Amazon Cognito | Xác thực người dùng (email + OTP) |
+| Amazon Bedrock | AI fallback — Amazon Nova Lite (`apac.amazon.nova-lite-v1:0`) |
+| Amazon SES | Gửi email OTP khi đăng ký / reset mật khẩu |
+| AWS SSM Parameter Store | Lưu trữ secrets (OPENROUTER_API_KEY) |
+| AWS CloudFormation | Quản lý infrastructure as code qua Amplify CDK |
 
-### 6. Ước tính ngân sách  
-Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01)  
-Hoặc tải [tệp ước tính ngân sách](../attachments/budget_estimation.pdf).  
+---
 
-*Chi phí hạ tầng*  
-- AWS Lambda: 0,00 USD/tháng (1.000 request, 512 MB lưu trữ).  
-- S3 Standard: 0,15 USD/tháng (6 GB, 2.100 request, 1 GB quét).  
-- Truyền dữ liệu: 0,02 USD/tháng (1 GB vào, 1 GB ra).  
-- AWS Amplify: 0,35 USD/tháng (256 MB, request 500 ms).  
-- Amazon API Gateway: 0,01 USD/tháng (2.000 request).  
-- AWS Glue ETL Jobs: 0,02 USD/tháng (2 DPU).  
-- AWS Glue Crawlers: 0,07 USD/tháng (1 crawler).  
-- MQTT (IoT Core): 0,08 USD/tháng (5 thiết bị, 45.000 tin nhắn).  
+### 4. Thiết kế từng thành phần
 
-*Tổng*: 0,7 USD/tháng, 8,40 USD/12 tháng  
-- *Phần cứng*: 265 USD một lần (Raspberry Pi 5 và cảm biến).  
+#### 4.1. Frontend — Angular 22 SPA
 
-### 7. Đánh giá rủi ro  
-*Ma trận rủi ro*  
-- Mất mạng: Ảnh hưởng trung bình, xác suất trung bình.  
-- Hỏng cảm biến: Ảnh hưởng cao, xác suất thấp.  
-- Vượt ngân sách: Ảnh hưởng trung bình, xác suất thấp.  
+- **Framework:** Angular 22 (standalone components, signals, computed)
+- **Auth:** Đăng ký/đăng nhập email + OTP, forgot password, confirm reset
+- **Dashboard:**
+  - Upload drag-drop với progress bar, validate type + size (tối đa 10 MB)
+  - Danh sách tài liệu dạng bảng với search theo tên, filter theo phân loại
+  - Quota tracking (đếm số tài liệu thực tế từ Document list)
+  - Polling 4 giây để cập nhật trạng thái xử lý
+- **Preview Modal:** PDF inline qua `<iframe>`, ảnh qua `<img>`, DOCX/PPTX dạng text viewer; AI summary + category badge; nút Retry khi `status = error`
+- **UX:** Toast notification, custom confirm dialog, dark/light theme, name prompt popup, responsive (mobile breakpoint 900px)
 
-*Chiến lược giảm thiểu*  
-- Mạng: Lưu trữ cục bộ trên Raspberry Pi với Docker.  
-- Cảm biến: Kiểm tra định kỳ, dự phòng linh kiện.  
-- Chi phí: Cảnh báo ngân sách AWS, tối ưu dịch vụ.  
+#### 4.2. Lambda A — `smart-doc-upload-trigger`
 
-*Kế hoạch dự phòng*  
-- Quay lại thu thập thủ công nếu AWS gặp sự cố.  
-- Sử dụng CloudFormation để khôi phục cấu hình liên quan đến chi phí.  
+- **Trigger:** S3 `ObjectCreated:Put` tại prefix `raw/`
+- **Runtime:** Node.js (TypeScript, bundled bằng esbuild)
+- **PDF/JPG/PNG:** query DynamoDB theo `s3Key-index` GSI → cập nhật `status = processing` → gọi `StartDocumentTextDetection` → lưu `textractJobId`
+- **DOCX/PPTX:** download file từ S3 → parse bằng `mammoth` hoặc `officeParser` → gọi AI pipeline → cập nhật `status = done`
+- **AI Pipeline:** Primary: OpenRouter (`meta-llama/llama-3.3-70b:free`) → Fallback: Bedrock Nova Lite → nếu cả 2 fail: `status = error`
 
-### 8. Kết quả kỳ vọng  
-*Cải tiến kỹ thuật*: Dữ liệu và phân tích thời gian thực thay thế quy trình thủ công. Có thể mở rộng tới 10–15 trạm.  
-*Giá trị dài hạn*: Nền tảng dữ liệu 1 năm cho nghiên cứu AI, có thể tái sử dụng cho các dự án tương lai.
+#### 4.3. Lambda B — `smart-doc-textract-result`
+
+- **Trigger:** SNS topic `textract-ocr-completed-topic`
+- **Runtime:** Node.js (TypeScript)
+- Parse SNS message → query DynamoDB theo `textractJobId-index` GSI → gọi `GetDocumentTextDetection` (có pagination) → AI pipeline → nếu text > 300 KB lưu lên S3 `processed/` → cập nhật `status = done`
+
+#### 4.4. DynamoDB Schema
+
+**Bảng: Document**
+
+| Trường | Mô tả |
+|---|---|
+| `id` (PK) | UUID |
+| `owner` | Cognito `sub::username` |
+| `fileName`, `fileType`, `fileSize` | Metadata file |
+| `s3Key` | Đường dẫn S3 object |
+| `status` | `uploaded` → `processing` → `text_extracted` → `done` → `error` |
+| `textractJobId` | ID job Textract bất đồng bộ |
+| `summary` | Tóm tắt do AI tạo |
+| `category` | `Hợp đồng` / `Hóa đơn` / `Báo cáo` / `Khác` |
+| `extractedText` | Văn bản OCR nếu < 300 KB |
+| `processedS3Key` | Đường dẫn S3 nếu text > 300 KB |
+| `createdAt` | Timestamp ISO |
+
+**GSI:**
+- `owner-createdAt-index` — query tài liệu theo user, sort theo thời gian
+- `textractJobId-index` — Lambda B lookup từ Textract callback
+- `s3Key-index` — Lambda A lookup từ S3 event
+
+**Bảng: UserQuota** — `owner` (PK), `uploadedCount`, `maxUploads` (mặc định 50)
+
+#### 4.5. Ghi chú hạ tầng
+
+- Tên S3 bucket cố định: `smart-doc-storage-{account}-{region}`
+- Tên Lambda cố định để tránh CDK circular dependency
+- ARN được construct dạng string thay vì CDK token
+- `S3 NotificationConfiguration` gắn trực tiếp vào `CfnBucket`
+- Dùng `SNS CfnSubscription` thay `LambdaSubscription` để tránh cross-stack token
+- `addDependency()` đảm bảo Lambda permission được tạo trước bucket notification
+
+---
+
+### 5. Kế hoạch triển khai
+
+| Giai đoạn | Thời gian | Hoạt động |
+|---|---|---|
+| Giai đoạn 1 — Khởi tạo & Backend | Ngày 1 | Setup Angular 22 + Amplify Gen 2, schema DynamoDB + AppSync, Cognito auth, S3 storage rules |
+| Giai đoạn 2 — Lambda Pipeline | Ngày 1–2 | Lambda A (S3 trigger, Textract, DOCX/PPTX parser), Lambda B (SNS trigger, OCR retrieval, AI), SNS + IAM roles |
+| Giai đoạn 3 — Frontend | Ngày 2 | Auth components, dashboard (upload, list, preview, quota), search/filter, retry, toast, dark/light theme, responsive |
+| Giai đoạn 4 — Deploy & Production | Ngày 3 | GitHub → Amplify Hosting, cấu hình `amplify.yml`, SES identity, SSM Parameter Store, test end-to-end |
+
+---
+
+### 6. Ước tính chi phí
+
+**Region:** ap-southeast-1 (Singapore) | **Mức sử dụng:** ~50 lần upload/tháng, ~10 user
+
+| Dịch vụ | Thông số | Chi phí/tháng |
+|---|---|---|
+| Amplify Hosting | 30 build phút, 1 GB served | ~$0.05 |
+| Lambda ×2 | 200 invocations, 128 MB, 30s avg | $0.00 (Free Tier) |
+| Amazon S3 | 2 GB storage, 200 requests | ~$0.05 |
+| DynamoDB | On-demand, ~2.000 R/W | $0.00 (Free Tier) |
+| AppSync | 50.000 requests | $0.00 (Free Tier) |
+| Cognito | < 50.000 MAU | $0.00 (Free Tier) |
+| Amazon Textract | 100 trang PDF/ảnh | ~$0.15 |
+| Amazon SNS | 100 messages | $0.00 (Free Tier) |
+| Amazon SES | 100 email OTP | ~$0.01 |
+| Amazon Bedrock | Fallback only | ~$0.00 |
+| SSM Parameter Store | Standard tier | $0.00 |
+| CloudFormation | — | $0.00 |
+| **Tổng** | | **~$0.26–$0.59/tháng** |
+| **Tổng 12 tháng** | | **~$3.12–$7.08/năm** |
+
+> **Ghi chú:** OpenRouter (free tier) là AI provider chính — chi phí Bedrock thực tế là $0. Textract là khoản chi lớn nhất, tính theo trang. DOCX/PPTX dùng thư viện cục bộ (mammoth/officeParser) không tốn Textract.
+
+---
+
+### 7. Đánh giá rủi ro
+
+| Rủi ro | Mức độ | Cách xử lý |
+|---|---|---|
+| OpenRouter API không ổn định | Trung bình | Fallback tự động sang Bedrock |
+| Textract timeout với file lớn | Thấp | Async job + SNS callback |
+| DynamoDB giới hạn item 400 KB | Trung bình | Text > 300 KB lưu riêng trên S3 |
+| Cognito email bị spam filter | Thấp | Dùng SES verified identity |
+| CDK circular dependency | Cao | Stable names + construct ARN dạng string |
+| S3 event notification race condition | Trung bình | `addDependency()` trong CDK |
+| Bedrock throttling (token/day limit) | Trung bình | Đã gặp thực tế → chuyển sang OpenRouter |
+| SES sandbox giới hạn recipient | Trung bình | Request SES production access |
+| Node version mismatch trên Amplify | Trung bình | `nvm install 22.22.3` trong build spec |
+| Angular budget exceeded | Thấp | Tăng `anyComponentStyle` budget |
+| SSM Parameter Store key conflict | Trung bình | Dùng đúng path `/amplify/{appId}/main/` |
+
+---
+
+### 8. Kết quả kỳ vọng
+
+**Chức năng hoàn chỉnh:**
+- Đăng ký tài khoản, xác thực email OTP, đăng nhập, reset mật khẩu
+- Upload PDF/Word/PowerPoint/ảnh (tối đa 10 MB)
+- Tự động OCR và phân tích AI trong vòng 30–60 giây
+- Dashboard với search theo tên file, filter theo phân loại AI
+- Preview inline PDF/ảnh, đọc text DOCX/PPTX trong browser
+- Tóm tắt AI + phân loại: Hợp đồng / Hóa đơn / Báo cáo / Khác
+- Retry xử lý thất bại mà không cần tải lại file
+- Quản lý quota 50 tài liệu/user
+- Tên hiển thị cá nhân hóa (lưu Cognito user attribute)
+
+**Chỉ số kỹ thuật:**
+- Thời gian xử lý PDF trung bình: < 60 giây
+- Thời gian xử lý DOCX/PPTX: < 15 giây
+- Availability: 99.9% (serverless)
+- Chi phí vận hành: < $1/tháng (mức sử dụng nhẹ)
+- Không có server cần maintain: 100% serverless

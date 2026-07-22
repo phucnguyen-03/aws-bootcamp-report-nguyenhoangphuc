@@ -16,37 +16,7 @@ The architecture uses two Lambda functions connected by an SNS topic, with Dynam
 
 #### Architecture Diagram
 
-```
-User (Browser)
-    │
-    ▼ Upload file
-Angular SPA (Amplify Hosting)
-    │
-    ▼ S3 PUT
-Amazon S3 (raw/)
-    │
-    ▼ S3 Event Trigger (ObjectCreated:Put)
-Lambda A — smart-doc-upload-trigger
-    │                           │
-    ▼ PDF / JPG / PNG           ▼ DOCX / PPTX
-Amazon Textract             mammoth / officeParser
-(Async OCR)                 (Local parsing)
-    │                           │
-    ▼ SNS Callback              │
-Lambda B — smart-doc-textract-result
-                │
-                ▼ AI Analysis
-        OpenRouter API (Primary)
-                │
-                ▼ Fallback if unavailable
-        Amazon Bedrock Nova Lite
-                │
-                ▼ { summary, category }
-        Amazon DynamoDB
-                │
-                ▼ AppSync GraphQL
-        Angular SPA — Dashboard
-```
+![Architecture Diagram](/images/2-Proposal/architecture.png)
 
 #### Content
 

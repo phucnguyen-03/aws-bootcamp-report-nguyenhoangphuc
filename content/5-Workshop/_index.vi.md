@@ -16,37 +16,7 @@ Kiến trúc gồm hai Lambda function kết nối qua SNS topic, DynamoDB lưu 
 
 #### Sơ đồ kiến trúc
 
-```
-Người dùng (Browser)
-    │
-    ▼ Tải file
-Angular SPA (Amplify Hosting)
-    │
-    ▼ S3 PUT
-Amazon S3 (raw/)
-    │
-    ▼ S3 Event Trigger (ObjectCreated:Put)
-Lambda A — smart-doc-upload-trigger
-    │                           │
-    ▼ PDF / JPG / PNG           ▼ DOCX / PPTX
-Amazon Textract             mammoth / officeParser
-(OCR bất đồng bộ)           (Xử lý cục bộ)
-    │                           │
-    ▼ SNS Callback              │
-Lambda B — smart-doc-textract-result
-                │
-                ▼ Phân tích AI
-        OpenRouter API (Primary)
-                │
-                ▼ Fallback nếu lỗi
-        Amazon Bedrock Nova Lite
-                │
-                ▼ { summary, category }
-        Amazon DynamoDB
-                │
-                ▼ AppSync GraphQL
-        Angular SPA — Dashboard
-```
+![Architecture Diagram](/images/2-Proposal/architecture.png)
 
 #### Nội dung
 
