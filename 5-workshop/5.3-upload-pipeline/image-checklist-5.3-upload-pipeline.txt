@@ -1,0 +1,26 @@
+IMAGE CHECKLIST — Section 5.3: Upload Pipeline — Lambda A & Textract
+=====================================================================
+Tổng số ảnh cần chụp: 13
+
+STT | Mã ảnh   | Tên file cần lưu (đường dẫn tuyệt đối từ static)                  | Vị trí trong bài (bước nào)       | Mô tả cần chụp
+----|----------|-------------------------------------------------------------------|-----------------------------------|----------------
+1   | 5.3-01   | static/images/5-Workshop/5.3-Upload-pipeline/5.3-01-amplify-folder-structure.png             | Kết quả mong đợi, mục 5.3.1      | Cấu trúc thư mục `amplify/` trong IDE (File Explorer), hiển thị đầy đủ functions/, storage/, data/, auth/ và file backend.ts
+2   | 5.3-02   | static/images/5-Workshop/5.3-Upload-pipeline/5.3-02-backend-ts-full-overview.png             | Tổng hợp, mục 5.3.3              | Toàn bộ file `backend.ts` trong IDE (collapsed view hoặc minimap), cho thấy tổng quan cấu trúc file ~250 dòng
+3   | 5.3-03   | static/images/5-Workshop/5.3-Upload-pipeline/5.3-03-cloudwatch-lambda-a-s3-trigger.png       | Bước 1-3, mục 5.3.4              | CloudWatch Logs của Lambda A, hiển thị log "Received S3 Event" và "Processing file" sau khi upload file thành công
+4   | 5.3-04   | static/images/5-Workshop/5.3-Upload-pipeline/5.3-04-cloudwatch-pdf-native-text.png           | Bước 4, mục 5.3.4                | CloudWatch Logs của Lambda A, hiển thị log "PDF has native text ... skipping Textract" khi upload PDF có text thật
+5   | 5.3-05   | static/images/5-Workshop/5.3-Upload-pipeline/5.3-05-cloudwatch-office-file-extract.png       | Bước 5, mục 5.3.4                | CloudWatch Logs của Lambda A, hiển thị log "Parsing office file locally" và "Extracted ... characters" khi upload DOCX
+6   | 5.3-06   | static/images/5-Workshop/5.3-Upload-pipeline/5.3-06-cloudwatch-textract-lambda-a-start.png   | Bước 6, mục 5.3.4                | CloudWatch Logs của Lambda A, hiển thị log "Starting Textract async job" và "Textract Job started: <JobId>" khi upload ảnh/PDF scan
+7   | 5.3-07   | static/images/5-Workshop/5.3-Upload-pipeline/5.3-07-cloudwatch-lambda-b-sns-callback.png     | Bước 7, mục 5.3.4                | CloudWatch Logs của Lambda B, hiển thị log "[SNS] Textract callback" với Status SUCCEEDED và số characters extracted
+8   | 5.3-08   | static/images/5-Workshop/5.3-Upload-pipeline/5.3-08-cloudwatch-lambda-b-ddb-stream-ai.png    | Bước 8-9, mục 5.3.4              | CloudWatch Logs của Lambda B, hiển thị log "[DDB Stream] Analyzing document" và "analysis complete" sau khi user chọn analysis mode
+9   | 5.3-09   | static/images/5-Workshop/5.3-Upload-pipeline/5.3-09-s3-console-raw-folder.png                | Bước 10, mục 5.3.4               | AWS S3 Console, mở bucket smart-doc-storage-..., hiển thị nội dung thư mục `raw/` với các file đã upload
+10  | 5.3-10   | static/images/5-Workshop/5.3-Upload-pipeline/5.3-10-dynamodb-document-status-done.png        | Bước 11, mục 5.3.4               | DynamoDB Console → Explore table items, hiển thị Document item với status "done", có summary và category đã được AI điền
+11  | 5.3-11   | static/images/5-Workshop/5.3-Upload-pipeline/5.3-11-sns-console-subscription-active.png      | Bước 12, mục 5.3.4               | SNS Console → topic `textract-ocr-completed-topic`, hiển thị subscription Lambda B ở trạng thái "Confirmed"
+12  | 5.3-12   | static/images/5-Workshop/5.3-Upload-pipeline/5.3-12-lambda-console-monitoring.png            | Bước 13, mục 5.3.4               | Lambda Console → Monitoring tab, hiển thị biểu đồ Invocations và Errors cho Lambda A hoặc Lambda B (không có error)
+13  | 5.3-13   | static/images/5-Workshop/5.3-Upload-pipeline/5.3-13-frontend-document-done-result.png        | Kết quả mong đợi, mục 5.3.4      | Frontend dashboard hiển thị document với status "done", hiển thị summary (tóm tắt AI) và category (phân loại) trên giao diện
+
+=====================================================================
+HƯỚNG DẪN SỬ DỤNG:
+1. Chụp ảnh theo mô tả ở cột cuối.
+2. Lưu file đúng tên ở cột "Tên file cần lưu" (lưu vào thư mục: static/images/5-Workshop/5.3-Upload-pipeline/).
+3. Không cần sửa nội dung bài viết — các file markdown đã được cấu hình đường dẫn tuyệt đối đến thư mục này.
+=====================================================================
